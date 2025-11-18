@@ -33,3 +33,10 @@ docker container run -d -p 3306:3306  \
 -e MYSQL_PASSWORD=xitgmLwmp \
 --name db2 mysql:5.7.21
 ```
+/*<tomcat-users xmlns="http://tomcat.apache.org/xml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://tomcat.apache.org/xml tomcat-users.xsd" version="1.0">
+<role rolename="manager-gui"/>
+<role rolename="manager-script"/>
+<role rolename="manager-jmx"/>
+<role rolename="manager-status"/>
+<user username="admin" password="admin" roles="manager-gui,manager-script,manager-jmx,manager-status"/>
+</tomcat-users>*/
