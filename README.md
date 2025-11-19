@@ -40,3 +40,47 @@ docker container run -d -p 3306:3306  \
 <role rolename="manager-status"/>
 <user username="admin" password="admin" roles="manager-gui,manager-script,manager-jmx,manager-status"/>
 </tomcat-users>*/
+
+
+/*
+pipeline {
+    agent any
+
+    tools {
+        maven 'Maven_Home'
+    }
+
+    stages {
+        stage('Clone Repo & Clean') {
+            steps {
+                
+                bat 'rmdir /s /q maven-simple'
+
+                
+                bat 'git clone https://github.com/manishwarMoturi/maven-simple.git'
+
+               
+                bat 'mvn clean -f maven-simple/pom.xml'
+            }
+        }
+
+        stage('Install') {
+            steps {
+                bat 'mvn install -f maven-simple/pom.xml'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                bat 'mvn test -f maven-simple/pom.xml'
+            }
+        }
+
+        stage('Package') {
+            steps {
+                bat 'mvn package -f maven-simple/pom.xml'
+            }
+        }
+    }
+}
+*/
